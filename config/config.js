@@ -27,12 +27,12 @@ var config = {
       name: 'bot'
     },
     port: 3000,
-    db: ''
+    db: process.env.MONGO_LAB_PROD_URI
   },
 
   facebook : {
     'clientID'      : '818342958265127', // your App ID
-    'clientSecret'  : 'your-client-secret-here', // your App Secret
+    'clientSecret'  : '951cb0fe7b416425e1a07b2f34309c49', // your App Secret
     'callbackURL'   : 'http://localhost:8080/auth/facebook/callback'
   }
 };
