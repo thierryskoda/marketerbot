@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
 
 router.post('/receivemessage', (req, res, next) => {
   TwillioService.receivedAMessage(req.body);
-  return res.status(200).send();
+  return res.status(200).end();
 })
 
 

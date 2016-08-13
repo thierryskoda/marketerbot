@@ -37,7 +37,7 @@ exports.receivedAMessage = (messageBody) => {
   usersList.forEach((user) => {
     if(user.number == messageBody.From) {
       slackService.getChannelWithNumber(messageBody.From, (channel) => {
-        console.log("The channel based on the number:", channel)
+        console.log("The channel based on the number:", channel.name)
         slackService.sendMessageToChannel(channel.id, messageBody.Body);
       });
     }
