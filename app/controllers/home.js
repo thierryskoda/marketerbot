@@ -12,9 +12,8 @@ module.exports = function (app) {
 
 router.get('/', function (req, res, next) {
   res.render('index', {
-      title: 'Generator-Express MVC',
-      articles: articles
-    });
+    title: 'Generator-Express MVC'
+  });
 });
 
 router.post('/receivemessage', (req, res, next) => {
