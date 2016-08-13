@@ -1,5 +1,4 @@
 'use strict';
-
 var isTesting = false;
 
 var twilio = require("twilio");
