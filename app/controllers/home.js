@@ -3,7 +3,6 @@
 var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
-  Article = mongoose.model('Article'),
   TwillioService = require('../services/twilio');
 
 module.exports = function (app) {
@@ -20,6 +19,10 @@ router.post('/receivemessage', (req, res, next) => {
   TwillioService.receivedAMessage(req.body);
   return res.status(200).end();
 })
+
+// Auth
+router.use('/auth', require('../auth'));
+
 
 
 var Slack = require('slack-node');

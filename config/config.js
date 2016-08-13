@@ -9,7 +9,10 @@ var config = {
       name: 'bot'
     },
     port: 3000,
-    db: process.env.MONGO_LAB_DEV_URI
+    db: process.env.MONGO_LAB_DEV_URI,
+    facebook : {
+      callbackURL : 'https://app-marketer.herokuapp.com/auth/facebook/callback'
+    }
   },
 
   test: {
@@ -29,12 +32,6 @@ var config = {
     ip : process.env.IP || '0.0.0.0',
     port: process.env.PORT || 9000,
     db: process.env.MONGO_LAB_PROD_URI
-  },
-
-  facebook : {
-    'clientID'      : '818342958265127', // your App ID
-    'clientSecret'  : '951cb0fe7b416425e1a07b2f34309c49', // your App Secret
-    'callbackURL'   : 'http://localhost:8080/auth/facebook/callback'
   }
 };
 
