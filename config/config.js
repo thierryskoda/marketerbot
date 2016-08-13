@@ -26,7 +26,8 @@ var config = {
     app: {
       name: 'bot'
     },
-    port: 3000,
+    ip : process.env.IP || '0.0.0.0'
+    port: process.env.PORT || 9000,
     db: process.env.MONGO_LAB_PROD_URI
   },
 
