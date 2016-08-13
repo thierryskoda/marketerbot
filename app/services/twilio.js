@@ -15,7 +15,11 @@ let usersList = [{
 },{
   name : 'Thierry',
   number : '+14384969893'
+},{
+  name : 'Caro',
+  number : '+15147025603'
 }]
+
 
 exports.sendSimpleMessage = (number, text) => {
   console.log("Sending message to :", number)
