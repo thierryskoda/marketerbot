@@ -15,9 +15,9 @@ router
     session: false
   }))
 
-  .post('/', passport.authenticate('facebook-token', {
-    scope: ['email', 'user_posts'],
-    session: false
-  }));
+  // .post('/', passport.authenticate('facebook-token', {
+  //   scope: ['email', 'user_posts'],
+  //   session: false
+  // }));
 
 module.exports = router;

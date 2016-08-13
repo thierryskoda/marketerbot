@@ -10,7 +10,8 @@ exports.setup = function (User, config) {
       clientID: process.env.FACEBOOK_APP_ID,
       clientSecret: process.env.FACEBOOK_APP_SECRET,
       callbackURL: config.facebook.callbackURL,
-      profileFields: ['id', 'displayName', 'email']
+      profileFields: ['id', 'displayName', 'email'],
+      scope: ['email', 'manage_pages', 'publish_pages', 'pages_manage_cta', 'read_page_mailboxes']
     },
     function (accessToken, refreshToken, profile, done) {
       profile._json.access_token = accessToken;
