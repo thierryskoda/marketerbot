@@ -21,11 +21,12 @@ bot.getChannels().then((data) => {
 // Detect new message on slack that the bot is in the channel
 bot.on('message', function(data) {
   if(data.type === 'message' && data.subtype !== 'bot_message') {
-    console.log("The message detected by the bot:", data.text)
-    getChannelById(data.channel, (channel) => {
-
-      TwillioService.sendSimpleMessage(channel.purpose.value, data.text);
-    });
+    if(!data.text.includes('marketerbot')) {
+      console.log("The message detected by the bot:", data.text)
+      getChannelById(data.channel, (channel) => {
+        TwillioService.sendSimpleMessage(channel.purpose.value, data.text);
+      });
+    }
   }
 })
 
