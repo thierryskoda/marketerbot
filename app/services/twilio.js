@@ -29,7 +29,6 @@ let usersList = [{
   number : '+15148955133'
 }]
 
-
 exports.sendSimpleMessage = (number, text) => {
   console.log("Sending message to :", number)
   client.messages.create({
