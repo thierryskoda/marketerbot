@@ -20,8 +20,7 @@ bot.getChannels().then((data) => {
 
 // Detect new message on slack that the bot is in the channel
 bot.on('message', function(data) {
-  console.log("test:", data)
-  if(data.type === 'message' && data.subtype !== 'bot_message') {
+  if(data.type === 'message' && data.subtype !== 'bot_message' && !data.text.includes('<@')) {
     if(!data.text.includes('marketerbot')) {
       console.log("The message detected by the bot:", data.text)
       getChannelById(data.channel, (channel) => {
