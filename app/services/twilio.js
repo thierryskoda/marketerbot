@@ -22,8 +22,8 @@ let usersList = [{
   name : 'Antoine',
   number : '+15142081009'
 },{
-  name : 'Antoine',
-  number : '+15142081009'
+  name : 'yen',
+  number : '+15149474759'
 },{
   name : 'Abel',
   number : '+15148955133'
