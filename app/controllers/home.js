@@ -4,7 +4,6 @@ var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
   TwillioService = require('../services/twilio');
-  FacebookService = require('../services/facebook');
 
 module.exports = function (app) {
   app.use('/', router);
