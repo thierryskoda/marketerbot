@@ -44,7 +44,7 @@ function getChannelById(channelId, callback) {
 // Just return the good channel based on the number
 exports.getChannelWithNumber = (number, callback) => {
   channels.forEach((channel) => {
-    if('+' + channel.purpose.value == number) {
+    if(channel.purpose.value == number) {
       return callback(channel);
     }
   });
