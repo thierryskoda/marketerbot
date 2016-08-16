@@ -26,7 +26,7 @@ bot.on('message', function(data) {
       console.log("The message detected by the bot:", data.text)
       getChannelById(data.channel, (channel) => {
         console.log("Found the channel, now sending the message")
-        // TwillioService.sendSimpleMessage(channel.purpose.value, data.text);
+        TwillioService.sendSimpleMessage(channel.purpose.value, data.text);
       });
     }
   }
@@ -60,3 +60,12 @@ exports.sendMessageToChannel = (channelId, message) => {
 
 // Handle Facebook post
 
+/* Mask: */
+background-image: linear-gradient(-180deg, rgba(237,237,237,0.00) 0%, #D8D8D8 100%);
+/* survey_results_background: */
+/* iPhone Hands 1: */
+/* Rectangle 50: */
+background: #FFFFFF;
+/* Multilingual typing: */
+/* iPhone 6: */
+/* iPhone Hands 1: */
