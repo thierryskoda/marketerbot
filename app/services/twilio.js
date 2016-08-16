@@ -34,8 +34,8 @@ exports.sendSimpleMessage = (number, text) => {
   client.messages.create({
       body: text,
       to: '+' + number,
-      from: myTwilioNumber,
-      mediaUrl: "http://farm2.static.flickr.com/1075/1404618563_3ed9a44a3a.jpg"
+      from: myTwilioNumber
+      // mediaUrl: "http://farm2.static.flickr.com/1075/1404618563_3ed9a44a3a.jpg"
   }, function(err, message) {
     if(err) {
       console.log("ERROR:", err)
