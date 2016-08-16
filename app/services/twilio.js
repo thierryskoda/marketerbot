@@ -9,25 +9,25 @@ var slackService = require('./slack');
 
 let myTwilioNumber = '+15146125723';
 
-let usersList = [{
-  name : 'Louis-Charles',
-  number : '+14506026169'
-},{
-  name : 'Thierry',
-  number : '+14384969893'
-},{
-  name : 'Caro',
-  number : '+15147025603'
-},{
-  name : 'Antoine',
-  number : '+15142081009'
-},{
-  name : 'yen',
-  number : '+15149474759'
-},{
-  name : 'Abel',
-  number : '+15148955133'
-}]
+// let usersList = [{
+//   name : 'Louis-Charles',
+//   number : '+14506026169'
+// },{
+//   name : 'Thierry',
+//   number : '+14384969893'
+// },{
+//   name : 'Caro',
+//   number : '+15147025603'
+// },{
+//   name : 'Antoine',
+//   number : '+15142081009'
+// },{
+//   name : 'yen',
+//   number : '+15149474759'
+// },{
+//   name : 'Abel',
+//   number : '+15148955133'
+// }]
 
 exports.sendSimpleMessage = (number, text) => {
   console.log("Sending message to :", number)
@@ -46,12 +46,9 @@ exports.sendSimpleMessage = (number, text) => {
 
 exports.receivedAMessage = (messageBody) => {
   console.log("The message receveid: ", messageBody.Body);
-  usersList.forEach((user) => {
-    if(user.number == messageBody.From) {
-      slackService.getChannelWithNumber(messageBody.From, (channel) => {
-        console.log("The channel based on the number:", channel.name)
-        slackService.sendMessageToChannel(channel.id, messageBody.Body);
-      });
-    }
-  })
+  if(messageBody.From[0] === '+') messageBody.From = messageBody.From.substr(1);
+  slackService.getChannelWithNumber(messageBody.From, (channel) => {
+    console.log("The channel based on the number:", channel.name)
+    slackService.sendMessageToChannel(channel.id, messageBody.Body);
+  });
 };

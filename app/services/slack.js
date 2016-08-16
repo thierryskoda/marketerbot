@@ -24,6 +24,7 @@ bot.on('message', function(data) {
     if(!data.text.includes('marketerbot')) {
       console.log("The message detected by the bot:", data.text)
       getChannelById(data.channel, (channel) => {
+        console.log("Found the channel, now sending the message")
         TwillioService.sendSimpleMessage(channel.purpose.value, data.text);
       });
     }
@@ -54,3 +55,7 @@ exports.sendMessageToChannel = (channelId, message) => {
       console.log("ERROR:", err);
   })
 }
+
+
+// Handle Facebook post
+

@@ -4,6 +4,7 @@ var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
   TwillioService = require('../services/twilio');
+  FacebookService = require('../services/facebook');
 
 module.exports = function (app) {
   app.use('/', router);
@@ -18,7 +19,7 @@ router.get('/', function (req, res, next) {
 router.post('/receivemessage', (req, res, next) => {
   TwillioService.receivedAMessage(req.body);
   return res.status(200).end();
-})
+});
 
 // Auth
 router.use('/auth', require('../auth'));
