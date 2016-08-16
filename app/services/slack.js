@@ -56,16 +56,3 @@ exports.sendMessageToChannel = (channelId, message) => {
       console.log("ERROR:", err);
   })
 }
-
-
-// Handle Facebook post
-
-/* Mask: */
-background-image: linear-gradient(-180deg, rgba(237,237,237,0.00) 0%, #D8D8D8 100%);
-/* survey_results_background: */
-/* iPhone Hands 1: */
-/* Rectangle 50: */
-background: #FFFFFF;
-/* Multilingual typing: */
-/* iPhone 6: */
-/* iPhone Hands 1: */
