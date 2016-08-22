@@ -249,7 +249,7 @@ console.log("test:", process.env.SLACK_APP_CLIENT_ID);
 console.log("test:", process.env.SLACK_APP_CLIENT_SECRET);
 console.log("test:", process.env.SLACK_MARKETER_BOT_API_KEY);
 console.log("test:", config.port);
-if (!process.env.SLACK_APP_CLIENT_ID || !process.env.SLACK_APP_CLIENT_SECRET || (!process.env.SLACK_PORT || config.port) || !process.env.SLACK_MARKETER_BOT_API_KEY) {
+if (!process.env.SLACK_APP_CLIENT_ID || !process.env.SLACK_APP_CLIENT_SECRET || !(process.env.SLACK_PORT || config.port) || !process.env.SLACK_MARKETER_BOT_API_KEY) {
     console.log('Error: Specify CLIENT_ID, CLIENT_SECRET, VERIFICATION_TOKEN and PORT in environment');
     process.exit(1);
 }
