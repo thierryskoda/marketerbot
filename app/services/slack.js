@@ -6,6 +6,7 @@ var User = require('../models/user');
 var FacebookService = new require('./facebook');
 var FacebookService = require('./facebook');
 var FacebookVar = new FacebookService();
+var config = require('../../config/config');
 
 // // create a bot
 // var bot = new SlackBot({
@@ -250,19 +251,19 @@ if (!process.env.SLACK_APP_CLIENT_ID || !process.env.SLACK_APP_CLIENT_SECRET || 
     process.exit(1);
 }
 
-var config = {}
-if (process.env.MONGOLAB_URI) {
+let slackAppConfig = {}
+if (config.db) {
     var BotkitStorage = require('botkit-storage-mongo');
-    config = {
+    slackAppConfig = {
         storage: BotkitStorage({mongoUri: process.env.MONGO_LAB_DEV_URI}),
     };
 } else {
-    config = {
+    slackAppConfig = {
         json_file_store: './db_slackbutton_slash_command/',
     };
 }
 
-var controller = Botkit.slackbot(config).configureSlackApp(
+var controller = Botkit.slackbot(slackAppConfig).configureSlackApp(
     {
         clientId: process.env.SLACK_APP_CLIENT_ID,
         clientSecret: process.env.SLACK_APP_CLIENT_SECRET,
@@ -299,7 +300,7 @@ bot.api.team.info({}, (err, res) => {
 // BEGIN EDITING HERE!
 //
 
-controller.on('create_bot',function(bot,config) {
+controller.on('create_bot',function(bot, config) {
   if (_bots[bot.config.token]) {
     // already online! do nothing.
   } else {
