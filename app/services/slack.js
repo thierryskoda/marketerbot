@@ -258,7 +258,7 @@ let slackAppConfig = {}
 if (config.db) {
     var BotkitStorage = require('botkit-storage-mongo');
     slackAppConfig = {
-        storage: BotkitStorage({mongoUri: process.env.MONGOLAB_URI}),
+        storage: BotkitStorage({mongoUri: config.db}),
     };
 } else {
     slackAppConfig = {
