@@ -25,55 +25,31 @@ router.use('/auth', require('../auth'));
 
 
 
-var Slack = require('slack-node');
-var slack = new Slack(process.env.SLACK_MARKETER_BOT_API_KEY);
 
-// slack.api("channels.list", function(err, response) {
-//   console.log(response);
+// 'use strict'
+
+// var Botkit = require('botkit');
+
+// var controller = Botkit.slackbot({
+//     debug: true
 // });
 
-// slack.api('chat.postMessage', {
-//   text:"What's" ,
-//   channel:'#general'
-// }, function(err, response){
-//   console.log(response);
+// controller.setupWebserver(3000, function(err, webserver) {
+//     controller.createWebhookEndpoints(webserver);
 // });
 
-var webhookUri = "https://hooks.slack.com/services/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";
+// controller.on('slash_command', function(bot, message) {
+//   console.log("SLAsH:")
+//     // check message.command
+//     // and maybe message.text...
+//     // use EITHER replyPrivate or replyPublic...
+//     bot.replyPrivate(message, 'This is a private reply to the ' + message.command + ' slash command!');
 
-var slack = new Slack();
-slack.setWebhook(webhookUri);
+//     // and then continue to use replyPublicDelayed or replyPrivateDelayed
+//     bot.replyPublicDelayed(message, 'This is a public reply to the ' + message.command + ' slash command!');
 
-// slack emoji
-// slack.webhook({
-//   channel: "#test",
-//   username: "markbot",
-//   icon_emoji: ":ghost:",
-//   text: "test message to see if test channel works"
-// }, function(err, response) {
-//   console.log(response);
+//     bot.replyPrivateDelayed(message, ':dash:');
 // });
 
+// module.exports = controller;
 
-var SlackBot = require('slackbots');
-
-
-
-
-// var requestPromise = require('request-promise');
-
-// var requestOption = {
-//   method : 'POST',
-//   url: 'https://slack.com/api/channels.invite',
-//   formData:  {
-//     token: process.env.SLACK_THIERRY_TEST_TOKEN_DISCOSHARE,
-//     channel : 'C20TD9ZFE',
-//     user : 'U20T50C93'
-//   }
-// };
-
-// requestPromise(requestOption).then((data) => {
-//     console.log("test:", data)
-// }).catch((err) => {
-//   console.log("ERROR:", err);
-// })

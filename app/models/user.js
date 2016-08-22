@@ -8,6 +8,11 @@ var userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   location: String,
+  phone_number : Number,
+  slack: {
+    channelId : String,
+    userId : String
+  },
   meta: {},
   created_at: Date,
   updated_at: Date

@@ -19,6 +19,11 @@ exports.setup = function (User, config) {
       console.log("accessToken:", accessToken);
       console.log("refreshToken:", refreshToken);
       console.log("profile:", profile);
+
+      User.find({}, (err, users) => {
+          console.log("test:", users);
+      });
+
       done(null,profile);
     }
   ));

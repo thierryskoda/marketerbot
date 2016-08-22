@@ -13,7 +13,9 @@ router
 
   .get('/callback', passport.authenticate('facebook', {
     session: false
-  }))
+  }), function(req, res) {
+    return res.status(200).send('Auth success');
+  })
 
   // .post('/', passport.authenticate('facebook-token', {
   //   scope: ['email', 'user_posts'],

@@ -11,7 +11,7 @@ var config = {
     port: 3000,
     db: process.env.MONGO_LAB_DEV_URI,
     facebook : {
-      callbackURL : 'https://app-marketer.herokuapp.com/auth/facebook/callback'
+      callbackURL : 'http://localhost:3000/auth/facebook/callback'
     }
   },
 
