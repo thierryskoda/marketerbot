@@ -1,0 +1,11 @@
+name: Markerter Bot
+description : This is the bot for Markerter.ai
+config :
+  - name: WIT_TOKEN
+    friendly_name: The key for the wit.ai API
+  - name: FACEBOOK_APP_SECRET
+    friendly_name: The secret of your Facebook App
+  - name: FACEBOOK_APP_ID
+    friendly_name: The app id of your Facebook App
+  - name: MONGOLAB_URI
+    friendly_name: The URI from mlab.com

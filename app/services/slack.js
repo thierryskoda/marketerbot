@@ -246,7 +246,7 @@ let emoji = require("js-emoji");
 
 let witbot = Witbot(process.env.WIT_TOKEN);
 
-if (!process.env.SLACK_APP_CLIENT_ID || !process.env.SLACK_APP_CLIENT_SECRET || !process.env.SLACK_PORT || !process.env.SLACK_MARKETER_BOT_API_KEY) {
+if (!process.env.SLACK_APP_CLIENT_ID || !process.env.SLACK_APP_CLIENT_SECRET || (!process.env.SLACK_PORT || config.port) || !process.env.SLACK_MARKETER_BOT_API_KEY) {
     console.log('Error: Specify CLIENT_ID, CLIENT_SECRET, VERIFICATION_TOKEN and PORT in environment');
     process.exit(1);
 }
@@ -255,7 +255,7 @@ let slackAppConfig = {}
 if (config.db) {
     var BotkitStorage = require('botkit-storage-mongo');
     slackAppConfig = {
-        storage: BotkitStorage({mongoUri: process.env.MONGO_LAB_DEV_URI}),
+        storage: BotkitStorage({mongoUri: process.env.MONGOLAB_URI}),
     };
 } else {
     slackAppConfig = {

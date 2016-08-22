@@ -9,7 +9,7 @@ var config = {
       name: 'bot'
     },
     port: 3000,
-    db: process.env.MONGO_LAB_DEV_URI,
+    db: process.env.MONGOLAB_URI,
     facebook : {
       callbackURL : 'http://localhost:3000/auth/facebook/callback'
     }
