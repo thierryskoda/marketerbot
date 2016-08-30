@@ -1,3 +1,5 @@
+'use strict'
+
 if(process.env.NODE_ENV == 'development' || process.env.NODE_ENV === undefined) {
   require('dotenv').config();
 }
