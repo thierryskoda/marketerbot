@@ -29,7 +29,7 @@ var apiaiApp = apiai(process.env.APIAI_TOKEN);
 */
 exports.connectSlack = (router) => {
   controller.createWebhookEndpoints(router, bot, function () {
-    console.log('Slack is online!')
+    console.log('SLACK bot is online!')
   })
 }
 

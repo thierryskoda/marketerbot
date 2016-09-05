@@ -1,7 +1,8 @@
 'use strict';
-let isTesting = false;
+let isTesting = true;
 
-let app = require('../../app');
+let express = require('express');
+let router = express.Router();
 let twilio = require("twilio");
 let accountSid = (isTesting) ? process.env.TWILIO_TEST_ACCOUNT_SID : process.env.TWILIO_ACCOUNT_SID;
 let authToken = (isTesting) ? process.env.TWILIO_TEST_AUTH_TOKEN : process.env.TWILIO_AUTH_TOKEN;
@@ -34,7 +35,6 @@ let demoImage = "https://s3.amazonaws.com/marketer.ai/images/Group+2.png";
 //   number : '+15148955133'
 // }]
 //
-
 
 exports.sendMediaMessage = (to, text, image) => {
   client.messages.create({
@@ -85,12 +85,17 @@ const controller = TwilioSMSBot({
 
 let bot = controller.spawn({});
 
-controller.setupWebserver(config.port, function (err, webserver) {
-  controller.createWebhookEndpoints(controller.webserver, bot, function () {
-    console.log('TwilioSMSBot is online!');
-    if(isTesting) console.log("TESTING MODE");
-  })
+controller.createWebhookEndpoints(router, bot, function () {
+  console.log('TWILIO Bot is online!');
+  if(isTesting) console.log("TESTING MODE");
 })
+
+// controller.setupWebserver(config.port, function (err, webserver) {
+//   controller.createWebhookEndpoints(controller.webserver, bot, function () {
+//     console.log('TwilioSMSBot is online!');
+//     if(isTesting) console.log("TESTING MODE");
+//   })
+// })
 
 /**
  * Conversion for posting a link on Facebook
@@ -272,8 +277,6 @@ controller.hears('.*', 'message_received', (bot, message) => {
   bot.reply(message, "huh? I'm not sure to understand ... :(");
 })
 
-exports.connectTwilio = (router) => {
-  // controller.createWebhookEndpoints(router, bot, function () {
-  //   console.log('TwilioSMSBot is online!')
-  // })
+exports.receiveSimpleMessage = (message) => {
+  console.log("test:", message)
 }

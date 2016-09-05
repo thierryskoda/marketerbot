@@ -30,7 +30,7 @@ var config = {
       name: 'bot'
     },
     ip : process.env.IP || '0.0.0.0',
-    port: process.env.PORT || 9000,
+    port: process.env.PORT || 3000,
     db: process.env.MONGOLAB_URI,
     facebook : {
       callbackURL : 'https://app-marketer.herokuapp.com/auth/facebook/callback'

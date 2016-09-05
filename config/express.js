@@ -34,7 +34,7 @@ module.exports = function(app, config) {
 
   // var services = glob.sync(config.root + '/app/services/*.js');
   // services.forEach(function (controller) {
-  //   require(services);
+  //   require(services)(app);
   // });
 
   app.use(function (req, res, next) {
