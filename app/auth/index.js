@@ -1,10 +1,10 @@
 'use strict';
 
-var express = require('express');
-var passport = require('passport');
-var config = require('../../config/config');
-var router = express.Router();
-var User = require('../models/user');
+let express = require('express');
+let passport = require('passport');
+let config = require('../config/config');
+let router = express.Router();
+let User = require('../models/user');
 
 // Passport Configuration
 require('./facebook/passport').setup(User, config);

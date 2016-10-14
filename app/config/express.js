@@ -13,7 +13,7 @@ module.exports = function(app, config) {
   app.locals.ENV = env;
   app.locals.ENV_DEVELOPMENT = env == 'development';
 
-  app.set('views', config.root + '/app/views');
+  app.set('views', config.root + '/views');
   app.set('view engine', 'ejs');
 
   // app.use(favicon(config.root + '/public/img/favicon.ico'));
@@ -27,14 +27,14 @@ module.exports = function(app, config) {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
+  var controllers = glob.sync(config.root + '/controllers/*.js');
   controllers.forEach(function (controller) {
     require(controller)(app);
   });
 
-  // var services = glob.sync(config.root + '/app/services/*.js');
-  // services.forEach(function (controller) {
-  //   require(services)(app);
+  // var services = glob.sync(config.root + '/services/*.js');
+  // services.forEach(function (service) {
+  //   require(service)(app);
   // });
 
   app.use(function (req, res, next) {
@@ -55,6 +55,7 @@ module.exports = function(app, config) {
   }
 
   app.use(function (err, req, res, next) {
+    console.log("ERROR 500 FUCK:", err);
     res.status(err.status || 500);
       res.render('error', {
         message: err.message,

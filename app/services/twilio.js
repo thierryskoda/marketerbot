@@ -9,7 +9,7 @@ let authToken = (isTesting) ? process.env.TWILIO_TEST_AUTH_TOKEN : process.env.T
 let myTwilioNumber = (isTesting) ? '+15005550006' : process.env.TWILIO_NUMBER;
 let client = new twilio.RestClient(accountSid, authToken);
 let slackService = require('./slack');
-let config = require('../../config/config');
+let config = require('../config/config');
 let FacebookService = require('./facebook');
 let FacebookVar = new FacebookService();
 

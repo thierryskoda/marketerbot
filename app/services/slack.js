@@ -1,12 +1,11 @@
 'use strict';
 
-let app = require('../../app');
 let TwillioService = require('./twilio');
 let User = require('../models/user');
 let Wit = require('./wit');
 let FacebookService = require('./facebook');
 let FacebookVar = new FacebookService();
-let config = require('../../config/config');
+let config = require('../config/config');
 let Botkit = require('botkit').slackbot;
 let emoji = require("js-emoji");
 var apiai = require('apiai');
@@ -188,6 +187,7 @@ function handleInteractiveMessageCallback(bot, message) {
 function handleDirectMessage(bot, message) {
   // let wit = witbot.process(message.text, bot, message)
   // bot.reply(message, 'What can I do for you?');
+  console.log("message:", message)
   bot.replyWithTyping(message, "Yes, what can I do for you?");
 //
   // wit.hears('hello', 0.5, (bot, message, outcome) => {
